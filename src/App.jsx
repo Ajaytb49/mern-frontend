@@ -6,14 +6,7 @@ import Home from './Home';
 import Nav from './Nav';
 import Cart from './components/Cart'; 
 import Product from './Product';
-
-// Placeholder for the Contact page
-const Contact = () => (
-    <div className="home-container" style={{ marginTop: '50px' }}>
-        <h2>Contact Page</h2>
-        <p>You can add your contact form or information here.</p>
-    </div>
-); 
+import Contact from './Contact';
 
 const App = () => {
     // STATE: Array to hold unique cart items

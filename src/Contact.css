@@ -1,0 +1,17 @@
+.contact-container{
+    max-width:900px;
+    margin:40px auto;
+    padding:20px;
+}
+.contact-container h1{
+    font-size:2rem;
+    margin-bottom:8px;
+}
+.lead{color:#444;margin-bottom:18px}
+.contact-form label{display:block;margin-bottom:12px;color:#333}
+.contact-form input,.contact-form textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;margin-top:6px}
+.form-actions{margin-top:14px}
+.btn-primary{background:#1d4ed8;color:#fff;padding:10px 16px;border-radius:6px;border:none;cursor:pointer}
+.status{margin-top:14px;padding:10px;border-radius:6px}
+.status-success{background:#ecfdf5;color:#065f46;border:1px solid #bbf7d0}
+.status-error{background:#fff1f2;color:#9f1239;border:1px solid #fecaca}
