@@ -102,25 +102,47 @@ const ProductForm = ({ onProductOperationComplete, editingProduct, onCancelEdit 
         <div className="product-form-container">
             <h3>{formTitle}</h3>
             {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-            
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="name" placeholder="Product Name" value={formData.name} onChange={handleChange} required />
-                <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} />
-                <input type="number" name="price" placeholder="Price" value={formData.price} onChange={handleChange} required />
-                <input type="number" name="stock" placeholder="Stock Quantity" value={formData.stock} onChange={handleChange} />
-                <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange} />
-                <input type="text" name="image" placeholder="Image URL" value={formData.image} onChange={handleChange} />
-                
-                <button type="submit" disabled={loading}>
-                    {loading ? (editingProduct ? 'Updating...' : 'Adding...') : submitButtonText}
-                </button>
-                
-                {/* Cancel Button inside the form container, visible only in Edit mode, or always if modal is open */}
-                {editingProduct && (
-                    <button type="button" onClick={onCancelEdit} style={{ backgroundColor: '#ccc', color: '#333' }}>
+
+            <form onSubmit={handleSubmit} className="product-form-grid">
+                <div className="form-field">
+                    <label>Product Name</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
+
+                <div className="form-field">
+                    <label>Category</label>
+                    <input type="text" name="category" value={formData.category} onChange={handleChange} />
+                </div>
+
+                <div className="form-field">
+                    <label>Price (INR)</label>
+                    <input type="number" name="price" value={formData.price} onChange={handleChange} required />
+                </div>
+
+                <div className="form-field">
+                    <label>Stock Quantity</label>
+                    <input type="number" name="stock" value={formData.stock} onChange={handleChange} />
+                </div>
+
+                <div className="form-field fullwidth">
+                    <label>Description</label>
+                    <textarea name="description" value={formData.description} onChange={handleChange} rows={4} />
+                </div>
+
+                <div className="form-field fullwidth">
+                    <label>Image URL</label>
+                    <input type="text" name="image" value={formData.image} onChange={handleChange} />
+                </div>
+
+                <div style={{ display: 'flex', gap: 10, marginTop: 6 }}>
+                    <button type="submit" disabled={loading} className="add-product-btn">
+                        {loading ? (editingProduct ? 'Updating...' : 'Adding...') : submitButtonText}
+                    </button>
+
+                    <button type="button" onClick={onCancelEdit} style={{ backgroundColor: '#efefef', color: '#222', borderRadius: 8, padding: '10px 14px', border: '1px solid #ddd' }}>
                         Cancel
                     </button>
-                )}
+                </div>
             </form>
         </div>
     );

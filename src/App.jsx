@@ -37,7 +37,6 @@ const App = () => {
 
     return (
         <Router>
-            {/* Nav no longer needs cartItemCount */}
             <Nav /> 
             <Routes>
                 {/* Home (welcome) */}

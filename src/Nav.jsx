@@ -39,13 +39,14 @@ function Nav() {
 						<Link to="/products" className="nav-link">
 							Product
 						</Link>
+						{/* Add Product removed from nav as requested */}
                         <Link to="/cart" className="nav-link cart-link">
 							Cart
 						</Link>
 						<Link to="/contect" className="nav-link">
 							Contact
 						</Link>
-						
+                        
 					</nav>
 				</div>
 
@@ -54,9 +55,18 @@ function Nav() {
 					onClick={() => setOpen(!open)}
 					aria-label="Toggle menu"
 				>
-					<span className="hamburger-line" />
-					<span className="hamburger-line" />
-					<span className="hamburger-line" />
+					{open ? (
+						<svg className="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M18 6L6 18" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+							<path d="M6 6L18 18" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+						</svg>
+					) : (
+						<svg className="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M3 6h18" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+							<path d="M3 12h18" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+							<path d="M3 18h18" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+						</svg>
+					)}
 				</button>
 			</div>
 		</header>

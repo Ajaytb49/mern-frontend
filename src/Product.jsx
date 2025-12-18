@@ -30,6 +30,44 @@ const Product = ({ onAddToCart }) => {
         fetchProducts();
     }, []);
 
+    // Demo products shown when backend returns no products (does not affect backend)
+    const demoProducts = [
+        {
+            _id: 'demo-1',
+            name: 'Classic Fountain Pen',
+            category: 'Pen',
+            description: 'Smooth-writing fountain pen with ergonomic grip.',
+            price: 60.0,
+            stock: 12,
+            image: 'https://tse2.mm.bing.net/th/id/OIP.LvqheFLtU8RqTYGtYryGNAHaEQ?pid=Api&P=0&h=180'
+        },
+        {
+            _id: 'demo-2',
+            name: 'Hardcover Notebook',
+            category: 'Notebook',
+            description: 'A5 size, 200 pages, dot-grid for note-taking and sketches.',
+            price: 50.0,
+            stock: 30,
+            image: 'https://tse1.mm.bing.net/th/id/OIP.iidDOCKhO9JP9O_32y1omQHaHM?pid=Api&P=0&h=180'
+        },
+        {
+            _id: 'demo-3',
+            name: 'Gel Ink Roller',
+            category: 'Pen',
+            description: 'Quick-dry gel ink with comfortable rubber grip.',
+            price: 10.0,
+            stock: 30,
+            image: 'https://tse4.mm.bing.net/th/id/OIP.IUcuvp-EcjBS1LkuyOQB0AAAAA?pid=Api&P=0&h=180'
+        }
+    ];
+
+    // Always display demo products alongside backend products (demo first).
+    // Merge and deduplicate by _id so backend items won't duplicate demo ones.
+    const displayProducts = [
+        ...demoProducts,
+        ...((products && products.length > 0) ? products.filter(p => !demoProducts.some(d => d._id === p._id)) : [])
+    ];
+
     const handleProductOperationComplete = () => {
         fetchProducts();
         handleCloseModal();
@@ -66,9 +104,6 @@ const Product = ({ onAddToCart }) => {
         <div className="home-container">
             <div className="dashboard-header">
                 <h1>Products</h1>
-                <button onClick={handleOpenModal} className="add-product-btn" disabled={isModalOpen}>
-                    + Add Product
-                </button>
             </div>
 
             {(isModalOpen || editingProduct) && (
@@ -91,7 +126,7 @@ const Product = ({ onAddToCart }) => {
             {!loading && products.length === 0 && <p>No products found. Add one above!</p>}
 
             <div className="product-list-grid">
-                {products.map((product) => (
+                {displayProducts.map((product) => (
                     <div key={product._id} className="product-card">
                         <div className="product-image-container">
                             <img

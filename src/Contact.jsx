@@ -26,7 +26,7 @@ const Contact = () => {
     return (
         <div className="contact-container">
             <h1>Contact Us</h1>
-            <p className="lead">Have a question or feedback? Send us a message — this is a demo contact form.</p>
+            <p className="lead">Have a question or feedback? Send us a message</p>
 
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
                 <label>
