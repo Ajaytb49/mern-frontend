@@ -123,7 +123,7 @@ const Product = ({ onAddToCart }) => {
 
             {loading && <p>Loading products...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            {!loading && products.length === 0 && <p>No products found. Add one above!</p>}
+            {!loading && products.length === 0 && <p></p>}
 
             <div className="product-list-grid">
                 {displayProducts.map((product) => (
