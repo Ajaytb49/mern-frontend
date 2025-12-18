@@ -19,8 +19,8 @@ const Product = ({ onAddToCart }) => {
             setProducts(data);
             setError(null);
         } catch (err) {
-            console.error('Error fetching products:', err);
-            setError(`Failed to load products. Error: ${err.message}. Check if backend is running and reachable.`);
+            // console.error('Error fetching products:', err);
+            // setError(`Failed to load products. Error: ${err.message}. Check if backend is running and reachable.`);
         } finally {
             setLoading(false);
         }
